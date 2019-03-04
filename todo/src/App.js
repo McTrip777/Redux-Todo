@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import TodoForm from './components/TodoForm';
+import TodoMap from './components/TodoMap';
+
 
 let items = [{
   task: 'Organize Garage',
@@ -27,10 +30,26 @@ class App extends Component {
   };
 
 
+  newTask = (ev,task) => {
+    ev.preventDefault();
+    // console.log(tasking.target);
+    const newItem = {
+      task: task,
+      id: Date.now(),
+      completed: false
+      };
+    this.setState({
+      items: [...this.state.items, newItem],
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Todo List:</h1>
+        <TodoForm newTask={this.newTask}
+            task={this.state.items.task}/>
+        <TodoMap items = {this.state.items} />
       </div>
     );
   }

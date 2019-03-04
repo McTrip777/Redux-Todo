@@ -5,10 +5,7 @@ const TodoMap = props =>{
     return(
     <div>
         {props.items.map((item) => (
-        <Todo 
-            key={item.id} 
-            items={item} 
-         />
+        <Todo key={item.id} items={item} />
         ))}
     </div>
 )};
