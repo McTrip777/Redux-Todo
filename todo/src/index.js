@@ -4,6 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
+import { ADD_TASK } from './Actions/Action';
 
 
 let initialState = {
@@ -26,8 +27,20 @@ let initialState = {
   ]
 };
 
+
+
 const Reducer = (state = initialState, action) => {
     switch (action.type) {
+    case ADD_TASK:
+    const addTask = {
+        task: action.payload,
+        id: Date.now(),
+        completed: false
+    };
+    return {
+    ...state,
+    items: [...state.items, addTask]
+    };
     default:
     return state;
 }}

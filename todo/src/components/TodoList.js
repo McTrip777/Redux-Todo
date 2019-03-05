@@ -1,10 +1,24 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
+import { addTask } from '../Actions/Action';
+
+
+
 class TodoList extends React.Component {
     state = {
         task:'',
     }
+
+  handleChanges = event =>{
+    this.setState({ task: event.target.value });
+  };
+
+  submitItem = e => {
+    e.preventDefault();
+    this.props.addTask(this.state.task);
+    this.setState({ task: '' });
+  }
 
 render () {
   return (
@@ -21,11 +35,11 @@ render () {
       />
       <button type="submit">Add Task</button>
     </form>
-        <ul>
+        <div>
             {this.props.items.map(item => (
-            <li key={item.id}>{item.task}</li>
+            <h4 key={item.id}>{item.task}</h4>
             ))}
-        </ul>
+        </div>
     </div>
   )
 }};
@@ -35,4 +49,5 @@ const mapStateToProps = state => ({
     items: state.items,
 });
 
-export default connect(mapStateToProps)(TodoList)
+export default connect(mapStateToProps,
+    { addTask })(TodoList)
