@@ -1,4 +1,5 @@
-let InitialState = [{
+let InitialState = {
+   items: [{
     task: 'Organize Garage',
     id: 1528817077286,
     completed: false
@@ -13,8 +14,11 @@ let InitialState = [{
     id: 1528817084359,
     completed: false
   }
-  ];
+  ]
+};
 
 export default function Reducer(state = InitialState, action){
-    return state;
-}
+    switch (action.type){
+    default:
+        return state;
+}};
