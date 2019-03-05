@@ -1,5 +1,7 @@
 import React from 'react';
 import Todo from './Todo';
+import { connect } from 'react-redux';
+
 
 const TodoMap = props =>{
     return(
@@ -10,4 +12,12 @@ const TodoMap = props =>{
     </div>
 )};
 
-export default TodoMap;
+const mapStateToProps = state => {
+    return {
+        task: state.task,
+        id: state.id,
+        completed: state.completed,
+    }
+}
+
+export default connect(mapStateToProps)(TodoMap);

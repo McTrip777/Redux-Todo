@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 function Todo(props) {
   return (
@@ -7,4 +8,11 @@ function Todo(props) {
     </p>
   );
 };
-export default Todo;
+
+const mapStateToProps = state => {
+    return {
+        task: state.task
+    }
+}
+
+export default connect(mapStateToProps)(Todo);
