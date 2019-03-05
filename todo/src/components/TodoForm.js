@@ -1,9 +1,11 @@
-import React from 'react';
+// import React from 'react';
+// import { connect } from 'react-redux';
+// import { addTask } from '../Actions/Action'
 
-class TodoForm extends React.Component {
-    state = {
-      task:''
-    }
+// class TodoForm extends React.Component {
+//     state = {
+//       task:''
+//     }
 
 //   handleChanges = event =>{
 //     // console.log(event.target.value)
@@ -30,6 +32,6 @@ class TodoForm extends React.Component {
 //     </form>
 //   );
 //   }
-};
+// };
 
-export default TodoForm;
+// export default TodoForm;

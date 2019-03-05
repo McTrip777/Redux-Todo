@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 
+
 let initialState = {
     title:"Task List:",
    items: [{
@@ -26,8 +27,10 @@ let initialState = {
 };
 
 const Reducer = (state = initialState, action) => {
-        return state;
-};
+    switch (action.type) {
+    default:
+    return state;
+}}
 
 const store = createStore(Reducer);
 
