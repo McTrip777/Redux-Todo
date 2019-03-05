@@ -27,7 +27,7 @@ class TodoList extends React.Component {
 
 render () {
   return (
-    <div>
+    <div className='content'>
       <h1>{this.props.title}</h1>
       <form className='form' onSubmit={this.submitItem}>
        <input
