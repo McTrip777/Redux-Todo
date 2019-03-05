@@ -4,12 +4,13 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
-import { ADD_TASK } from './Actions/Action';
+import { ADD_TASK, TOGGLE_TASK } from './Actions/Action';
 
 
 let initialState = {
     title:"Task List:",
-   items: [{
+   items: [
+  {
     task: 'Organize Garage',
     id: 1528817077286,
     completed: false
@@ -27,8 +28,6 @@ let initialState = {
   ]
 };
 
-
-
 const Reducer = (state = initialState, action) => {
     switch (action.type) {
     case ADD_TASK:
@@ -41,6 +40,19 @@ const Reducer = (state = initialState, action) => {
     ...state,
     items: [...state.items, addTask]
     };
+    case TOGGLE_TASK:
+      return {
+        ...state,
+        items: state.items.map(item => {
+          if (item.id === action.payload) {
+            return {
+              ...item,
+              completed: !item.completed
+            };
+          }
+          return item;
+        })
+      };
     default:
     return state;
 }}
