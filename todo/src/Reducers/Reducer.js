@@ -1,3 +1,6 @@
+import { NEW_TASK } from '../Actions/Action';
+
+
 let InitialState = {
    items: [{
     task: 'Organize Garage',
@@ -17,8 +20,30 @@ let InitialState = {
   ]
 };
 
-export default function Reducer(state = InitialState, action){
+function Reducer(state = InitialState, action){
     switch (action.type){
+        case NEW_TASK:
+            const newItem = {
+                task: action.task,
+                id:Date.now(),
+                completed: false,
+                };
+        return {
+            ...state,
+            items: [...state.items, newItem]
+        };
     default:
         return state;
 }};
+
+// newTask = (ev,task) => {
+//     ev.preventDefault();
+//     // console.log(tasking.target);
+//     
+//     this.setState({
+//       items: [...this.state.items, newItem],
+//     });
+//   };
+
+
+export default Reducer;

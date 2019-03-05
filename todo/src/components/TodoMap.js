@@ -7,7 +7,7 @@ const TodoMap = props =>{
     return(
     <div>
         {props.items.map((item, index) => {
-            return <li key={index}>{item.task}</li>
+            return <p key={index}>{item.task}</p>
         })}
     </div>
 )};
