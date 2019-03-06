@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-import { addTask, toggleTask } from '../Actions/Action';
+import { addTask, toggleTask, deleteTask } from '../Actions/Action';
 
 
 
@@ -24,6 +24,9 @@ class TodoList extends React.Component {
     this.props.toggleTask(id);
   };
 
+  deleteTask = completed => {
+    this.props.deleteTask(completed);  
+  };
 
 render () {
   return (
@@ -38,15 +41,17 @@ render () {
         onChange={this.handleChanges}
         placeholder="insert task"
       />
-      <button type="submit">Add Task</button>
+      <button className='add' type="submit">Add Task</button>
     </form>
         <div>
             {this.props.items.map(item => (
-            <h4 key={item.id} onClick={() => this.toggleTask(item.id)}
-            className={`item${item.completed ? ' completed' : ''}`}>
-            {item.task}
-            
-            </h4>
+           <div>
+              <h4 key={item.id} onClick={() => this.toggleTask(item.id)}
+                className={`item${item.completed ? ' completed' : ''}`}>
+                {item.task}
+              </h4>
+              <button onClick={() => this.deleteTask(item.id)} className='delete'>x</button>
+           </div> 
             ))}
         </div>
     </div>
@@ -59,4 +64,4 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps,
-    { addTask, toggleTask })(TodoList)
+    { addTask, toggleTask, deleteTask })(TodoList)

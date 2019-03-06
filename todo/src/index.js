@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
-import { ADD_TASK, TOGGLE_TASK } from './Actions/Action';
+import { ADD_TASK, TOGGLE_TASK, DELETE_TASK } from './Actions/Action';
 
 
 let initialState = {
@@ -51,6 +51,16 @@ const Reducer = (state = initialState, action) => {
             };
           }
           return item;
+        })
+      };
+      case DELETE_TASK:
+      return {
+        items: state.items.filter(item => {
+          if (item.completed !== true) {
+            return {
+              ...item,
+            };
+          }
         })
       };
     default:
