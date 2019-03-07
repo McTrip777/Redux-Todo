@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+  width:20rem;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  background-image: linear-gradient(#ffffff, #fcc779);
+  padding: 3rem;
+}
+h1{
+  color:midnightblue;
+}
+.form{
+  display: flex;
+}
+.form input{
+  width:10rem;
+  height: 1.5rem;
+  margin-right:1rem;
+  padding:0;
+}
+.add{
+  width:3rem;
+  height:1.8rem;
+  padding:0;
+}
+.completed{
+  text-decoration: line-through;
+}
+h4{
+  margin-bottom: .5rem;
+  box-shadow: 0rem .5rem 1rem midnightblue;
+  width:15rem;
+  height:2rem;
+  padding:.5rem 0 .2rem 0;
+  font-size:1.4rem;
+  color:midnightblue;
+  cursor:pointer;
+}
